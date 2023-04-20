@@ -1,4 +1,6 @@
-Important make sure that ports 3000 and 4200 is opened on your pc 
+#Important 
+make sure that ports 3000 and 4200 is opened on your pc 
+and lastest stable node version installed
 
 Backend
 1. open ./interview-task-backend
