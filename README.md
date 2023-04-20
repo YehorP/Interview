@@ -11,3 +11,5 @@ Frontend
 1. open ./interview-task
 2. enter 'npm i' in console
 3. enter 'npm run start' in console
+
+App is available on http://localhost:4200/
