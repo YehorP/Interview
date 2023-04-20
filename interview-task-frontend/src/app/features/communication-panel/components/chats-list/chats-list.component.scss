@@ -1,0 +1,75 @@
+@import '/src/styles/shared-styles.scss';
+
+:host {
+    background-color: #f0f0f0;
+}
+
+
+
+.list-header {
+    padding: 1rem 0 0 .5rem;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.chats-section {
+    
+    background-color: #f0f0f0;
+    padding: 0;
+    box-shadow: none;
+
+    &__header {
+        padding: 0;
+    }
+
+    &::ng-deep  .mat-expansion-panel-body{
+        padding: 0;
+    }
+
+    .chat:hover, .selected-chat {
+        background-color: white;
+        cursor: pointer;
+    }
+ 
+    .chat {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+
+        &__image {
+            width: 20%;
+
+            .avatar-no-image, .avatar-image {
+                height: 80%;
+                width: 75%;
+                margin: .5rem 0 0 .8rem;
+
+                @media (max-width: 800px) {
+                    & {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            padding: .5rem;
+            width: 80%;
+
+           
+
+            .user-data {
+                h3 {
+                    margin-bottom: 0;
+                }
+
+                display: flex;
+                flex-wrap: nowrap;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+

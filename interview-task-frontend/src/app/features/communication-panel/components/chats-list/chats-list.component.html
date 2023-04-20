@@ -1,0 +1,33 @@
+<div class="list-header">
+  <h2>Chat</h2>
+</div>
+<mat-accordion class="w-100" *ngFor="let category of categoriesData">
+    <mat-expansion-panel hideToggle 
+      class="chats-section"
+      [expanded]="true"  
+      (opened)="handlePanelToggle(category.categoryName)" 
+      (closed)="handlePanelToggle(category.categoryName)" 
+    >
+      <mat-expansion-panel-header class="chats-section__header">
+        <mat-panel-title>
+          <mat-icon>{{categoriesExpanded[category.categoryName]  ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}}</mat-icon>
+          {{category.categoryName}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="chat w-100" *ngFor="let chat of category.chats" (click)="handleChatSelection(chat)" [ngClass]="{'selected-chat': selectedChat === chat}">
+        <div class="chat__image">
+          <div *ngIf="!chat.imageLink" class="avatar-no-image">
+            <span class="avatar-no-image__text">{{chat.firstName | avatarInitials : chat.lastName}}</span>
+          </div>
+          <img *ngIf="chat.imageLink" class="avatar-image" [src]="chat.imageLink"/>
+        </div>
+        <div class="chat__info w-100">
+          <div class="user-data">
+            <h3>{{chat.firstName + ' ' + chat.lastName}}</h3><span>{{chat.lastMessage.date | date : 'dd/M'}}</span>
+          </div>
+          <span class="message-info" >{{chat.lastMessage.text}}</span>
+        </div>
+      </div>
+    </mat-expansion-panel>
+</mat-accordion>
+

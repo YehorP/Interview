@@ -1,0 +1,28 @@
+.h-100 {
+    height: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.avatar {
+    &-no-image {
+        background-color: #cfdadf;
+        border-radius: 100%;
+        position: relative;
+    
+        &__text {
+            position: absolute;
+            top: 50%; right: 50%;
+            transform: translate(50%,-50%);
+            color: #133139;
+        }
+    }
+
+    &-image {
+        border-radius: 100%;
+    }
+  
+}
+

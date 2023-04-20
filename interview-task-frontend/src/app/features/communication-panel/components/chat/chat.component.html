@@ -1,0 +1,30 @@
+<mat-card class="h-100 chat">
+  <div class="chat-header">
+    <h2>{{selectedChatInfo ? selectedChatInfo.firstName + ' ' + selectedChatInfo.lastName : ' '}}</h2>
+  </div>
+  <div class="messages-container">
+    <div class="messages" *ngIf="selectedChatInfo && messagesData">
+      <div *ngFor="let message of messagesData.messages" class="w-100">
+        <div [ngClass]="{
+          'current-user-message':message.author === 'You',
+          'user-message': message.author !== 'You'
+        }">
+          <small>{{message.date | date : 'EEEE h:mm a'}}</small>
+          <h4>{{message.text}}</h4>
+        </div>
+      </div>
+    </div>
+    <h2 class="no-chat-selected" *ngIf="!selectedChatInfo">
+      Select Chat First
+    </h2>
+  </div>
+  <form [formGroup]="messagesForm" class="messages-form" (ngSubmit)="handleMessageSending()">
+    <mat-form-field appearance="fill" class="w-100">
+      <input matInput formControlName="message">
+    </mat-form-field>
+    <button type="submit" [disabled]="!selectedChatInfo" mat-flat-button color="primary" class="messages-button"><mat-icon>
+        message</mat-icon></button>
+  </form>
+
+
+</mat-card>
