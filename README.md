@@ -8,7 +8,7 @@ Backend
 3. enter 'npm run start' in console
 
 Frontend
-1. open ./interview-task
+1. open ./interview-task-frontend
 2. enter 'npm i' in console
 3. enter 'npm run start' in console
 
